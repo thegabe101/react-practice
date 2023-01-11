@@ -20,6 +20,7 @@ export const AddTask = () => {
 		const task = {
 			id: list.length === 0 ? 1 : list[list.length - 1].id + 1,
 			taskName: newTask,
+			progress: false,
 		};
 
 		setList([...list, task]);
@@ -29,12 +30,30 @@ export const AddTask = () => {
 		setList(list.filter((task) => task.id !== id));
 	};
 
+	const taskProgress = (id) => {
+		setList(
+			list.map((task) => {
+				if (task.id === id) {
+					return { ...task, progress: true };
+				} else {
+					return { ...task, progress: false };
+				}
+			})
+		);
+	};
+
 	return (
 		<div className="addTask">
 			<input onChange={enterTask} />
 			<button onClick={btnAdd}>Add Task to List</button>
 			{list.map((e) => (
-				<Task name={e.taskName} id={e.id} taskFinished={taskFinished} />
+				<Task
+					taskName={e.taskName}
+					id={e.id}
+					progress={e.progress}
+					taskProgress={taskProgress}
+					taskFinished={taskFinished}
+				/>
 			))}
 		</div>
 	);

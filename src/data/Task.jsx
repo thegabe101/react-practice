@@ -3,10 +3,15 @@ import React from "react";
 export const Task = (props) => {
 	return (
 		<ul>
-			<div>
-				<li>{props.taskName}</li>
+			<div
+				style={{ backgroundColor: props.progress ? "green" : "white" }}
+			>
+				<h1>{props.taskName}</h1>
+				<button onClick={() => props.taskProgress(props.id)}>
+					Mark task in progress
+				</button>
 				<button onClick={() => props.taskFinished(props.id)}>
-					Task finished
+					Delete task
 				</button>
 			</div>
 		</ul>
