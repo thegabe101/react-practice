@@ -14,6 +14,9 @@ export const Planets = () => {
 	return (
 		<div>
 			{planetArray.map((planet, key) => {
+				{
+					key = key;
+				}
 				if (planet.isGasPlanet) {
 					return <Planet name={planet.name + " is a gas planet"} />;
 				}
