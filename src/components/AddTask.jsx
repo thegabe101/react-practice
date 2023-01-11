@@ -17,14 +17,7 @@ export const AddTask = () => {
 	};
 
 	const taskFinished = (taskName) => {
-		const newToDoList = list.filter((task) => {
-			if (task === taskName) {
-				return false;
-			} else {
-				return true;
-			}
-		});
-		setList(newToDoList);
+		setList(list.filter((task) => task !== taskName));
 	};
 
 	return (
