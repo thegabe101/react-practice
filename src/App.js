@@ -3,6 +3,7 @@ import Jobs from './components/Jobs';
 import { People } from './components/People';
 import { Planets } from './components/Planets';
 import { StatePractice } from './components/StatePractice';
+import Counter from './components/StateExercise';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <People />
       <Planets />
       <StatePractice />
+      <Counter />
     </div>
   );
 }
