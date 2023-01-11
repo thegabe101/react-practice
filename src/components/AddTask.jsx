@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Task } from "../data/Task";
+import "../styles/task.css";
 
 export const AddTask = () => {
 	const [newTask, setNewTask] = useState("");
@@ -12,12 +14,19 @@ export const AddTask = () => {
 
 	// spread operator is super important in react; create an array that is composed of everything in existing array
 	const btnAdd = () => {
-		const newToDoList = [...list, newTask];
-		setList(newToDoList);
+		// const newToDoList = [...list, newTask];
+		// setList(newToDoList);
+
+		const task = {
+			id: list.length === 0 ? 1 : list[list.length - 1].id + 1,
+			taskName: newTask,
+		};
+
+		setList([...list, task]);
 	};
 
-	const taskFinished = (taskName) => {
-		setList(list.filter((task) => task !== taskName));
+	const taskFinished = (id) => {
+		setList(list.filter((task) => task.id !== id));
 	};
 
 	return (
@@ -25,14 +34,7 @@ export const AddTask = () => {
 			<input onChange={enterTask} />
 			<button onClick={btnAdd}>Add Task to List</button>
 			{list.map((e) => (
-				<ul>
-					<div>
-						<li>{e}</li>
-						<button onClick={() => taskFinished(e)}>
-							Task finished
-						</button>
-					</div>
-				</ul>
+				<Task name={e.taskName} id={e.id} taskFinished={taskFinished} />
 			))}
 		</div>
 	);
