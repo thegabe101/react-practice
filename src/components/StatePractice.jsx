@@ -11,10 +11,12 @@ export const StatePractice = () => {
 
 	useEffect(() => {
 		console.log("component mounted");
+		console.log("logic to call api here");
 
 		//return function is executed when component unmounts
 		return () => {
 			console.log("component unmounted");
+			console.log("logic to stop call to api here");
 		};
 	}, [text, header]);
 
