@@ -7,10 +7,13 @@ import Counter from './components/StateExercise';
 import { AddTask } from './components/AddTask';
 import { CatFact } from './components/CatFact';
 import { AgePredictor } from './components/AgePredictor';
+import { Excuser } from './components/Excuser';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+      <Excuser />
       <AgePredictor />
       <CatFact />
       <AddTask />
