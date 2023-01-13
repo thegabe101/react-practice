@@ -14,6 +14,7 @@ import { Cat } from './components/Cat';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useCounter } from './components/useCounter';
 import { Count } from './components/Count';
+import { Animal } from './components/Animal';
 
 
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
+        <Animal species="Hippo" habitat="Bog" demeanor="Angry" friends={[' Tiger', ' Lion', ' Bear', 7, true, null]} />
         <Count />
         <Cat />
         {isVisible && <h1>Text is visible using usetoggle</h1>}
